@@ -28,14 +28,14 @@ t_map		check_fd(int fd, char *l, char *t, int i)
 	t = NULL;
 	i = 0;
 	t = ft_calloc(17, sizeof(char));
-	!t ? wtf('h') : 0;
+	!t ? game_err('h') : 0;
 	while (get_next_line(fd, &l))
 	{
 		if (l[0] == '1' || l[0] == ' ')
 			m = map_prop(fd);
 		else if ((l[0] >= 'a' && l[0] <= 'z') || (l[0] >= 'A' && l[0] <= 'Z'))
 		{
-			i > 15 ? wtf('k') : 0;
+			i > 15 ? game_err('k') : 0;
 			t[i] = l[0];
 			t[i + 1] = l[1];
 			i += 2;
@@ -43,9 +43,9 @@ t_map		check_fd(int fd, char *l, char *t, int i)
 		free(l);
 	}
 	free(l);
-	FU4 || FU5 || FU6 ? wtf('l') : 0;
+	FU4 || FU5 || FU6 ? game_err('l') : 0;
 	free(t);
-	m.la < 3 || m.lo < 3 ? wtf('i') : 0;
+	m.la < 3 || m.lo < 3 ? game_err('i') : 0;
 	return (m);
 }
 
@@ -78,10 +78,10 @@ void		check_save(char *str)
 	{
 		i--;
 		if (i == 0)
-			wtf('y');
+			game_err('y');
 	}
 	if (!(str[i + 1] == 'c' && str[i + 2] == 'u' && str[i + 3] == 'b'))
-		wtf('q');
+		game_err('q');
 }
 
 int			main(int argc, char **argv)
@@ -100,7 +100,7 @@ int			main(int argc, char **argv)
 	&& argv[2][4] == 'v' && argv[2][5] == 'e') ? save = 1 : 0;
 	g.save = save;
 	if (argc < 2)
-		wtf('g');
+		game_err('g');
 	else if ((argc == 3 && save == 1) || argc == 2)
 	{
 		check_save(argv[1]);
@@ -108,6 +108,6 @@ int			main(int argc, char **argv)
 		game(&g);
 	}
 	else
-		wtf('x');
+		game_err('x');
 	return (EXIT_SUCCESS);
 }

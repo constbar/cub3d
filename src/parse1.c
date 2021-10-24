@@ -7,8 +7,8 @@ void	check_end_line(char *l)
 
 	tmp = ft_strtrim(l, " ");
 	len = ft_strlen(tmp);
-	tmp[0] != '1' ? wtf('t') : 0;
-	tmp[len - 1] != '1' ? wtf('t') : 0;
+	tmp[0] != '1' ? game_err('t') : 0;
+	tmp[len - 1] != '1' ? game_err('t') : 0;
 	free(tmp);
 }
 
@@ -29,18 +29,18 @@ void	init_map(int fd, char *line, t_game *g, int i)
 	l = NULL;
 	i = 0;
 	g->map.tabm = malloc(sizeof(g->map.tabm) * g->map.lo);
-	!g->map.tabm ? wtf('d') : 0;
+	!g->map.tabm ? game_err('d') : 0;
 	while (i++ < g->map.lo)
 	{
 		g->map.tabm[i - 1] = malloc(g->map.la * sizeof(char) + 1);
-		!g->map.tabm[i - 1] ? wtf('d') : 0;
+		!g->map.tabm[i - 1] ? game_err('d') : 0;
 	}
 	g->map.x = 0;
 	check_and_fill(line, g);
 	while ((ret = get_next_line(fd, &l)))
 	{
 		g->map.x < g->map.lo ? check_and_fill(l, g) : 0;
-		!l[0] ? wtf('p') : 0;
+		!l[0] ? game_err('p') : 0;
 		free(l);
 	}
 	free(l);
@@ -56,23 +56,23 @@ t_res	parse_res(char *line, t_game *g)
 	t_res			rsl;
 
 	res = ft_split(line, ' ');
-	!res[1] ? wtf('m') : 0;
+	!res[1] ? game_err('m') : 0;
 	rsl.w = ft_atoi(res[1]);
-	!res[2] ? wtf('m') : 0;
+	!res[2] ? game_err('m') : 0;
 	rsl.he = ft_atoi(res[2]);
 	if (!res[3])
 	{
-		!rsl.he || !rsl.w ? wtf('n') : 0;
+		!rsl.he || !rsl.w ? game_err('n') : 0;
 		g->mlx_ptr = mlx_init();
-		rsl.he < 1 ? wtf('n') : 0;
-		rsl.w < 1 ? wtf('n') : 0;
+		rsl.he < 1 ? game_err('n') : 0;
+		rsl.w < 1 ? game_err('n') : 0;
 		mlx_get_screen_size(g->mlx_ptr, &mx, &my);
 		rsl.he > my ? rsl.he = my : 0;
 		rsl.w > mx ? rsl.w = mx : 0;
 		free_mem(res, 3);
 	}
 	else
-		wtf('o');
+		game_err('o');
 	return (rsl);
 }
 

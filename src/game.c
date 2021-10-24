@@ -39,11 +39,11 @@ void		dub_map(t_game *g, int x, int y, int i)
 	y = 0;
 	i = 0;
 	g->old_m.tabm = malloc(sizeof(g->old_m.tabm) * g->map.la);
-	!g->old_m.tabm ? wtf('d') : 0;
+	!g->old_m.tabm ? game_err('d') : 0;
 	while (i++ < g->map.lo)
 	{
 		g->old_m.tabm[i - 1] = malloc(sizeof(*g->old_m.tabm) * g->map.lo);
-		!g->old_m.tabm[i - 1] ? wtf('d') : 0;
+		!g->old_m.tabm[i - 1] ? game_err('d') : 0;
 	}
 	x = 0;
 	while (x < g->map.lo)
@@ -68,7 +68,7 @@ void		game(t_game *g)
 	y = 0;
 	i = 0;
 	g->win_ptr = mlx_new_window(g->mlx_ptr, g->res.w, \
-		g->res.he, "agroup project");
+		g->res.he, "cub3d project");
 	dub_map(g, x, y, i);
 	invert(g, y);
 	playerxy(g, x, y, i);

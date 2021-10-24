@@ -22,7 +22,7 @@ void	scrnsht(t_game *g, int fd, int i)
 
 	i = 0;
 	fd = open("shot.bmp", O_RDWR | O_CREAT, 0644);
-	fd < 0 ? wtf('a') : 0;
+	fd < 0 ? game_err('a') : 0;
 	pbpr = g->res.w * sizeof(t_bmp);
 	head[0] = 'B';
 	head[1] = 'M';

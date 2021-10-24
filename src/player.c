@@ -4,22 +4,22 @@ void	init_text(t_game *g)
 {
 	if (!(g->t_no.i.img = mlx_xpm_file_to_image(g->mlx_ptr, \
 		g->t_no.path, &g->t_no.w, &g->t_no.h)))
-		wtf('e');
+		game_err('e');
 	g->t_no.i.adrr = mlx_get_data_addr(g->t_no.i.img, \
 		&g->t_no.i.bpx, &g->t_no.i.line_l, &g->t_no.i.endian);
 	if (!(g->t_we.i.img = mlx_xpm_file_to_image(g->mlx_ptr, \
 		g->t_we.path, &g->t_we.w, &g->t_we.h)))
-		wtf('e');
+		game_err('e');
 	g->t_we.i.adrr = mlx_get_data_addr(g->t_we.i.img, \
 		&g->t_we.i.bpx, &g->t_we.i.line_l, &g->t_we.i.endian);
 	if (!(g->t_so.i.img = mlx_xpm_file_to_image(g->mlx_ptr, \
 			g->t_so.path, &g->t_so.w, &g->t_so.h)))
-		wtf('e');
+		game_err('e');
 	g->t_so.i.adrr = mlx_get_data_addr(g->t_so.i.img, \
 		&g->t_so.i.bpx, &g->t_so.i.line_l, &g->t_so.i.endian);
 	if (!(g->t_ea.i.img = mlx_xpm_file_to_image(g->mlx_ptr, \
 			g->t_ea.path, &g->t_ea.w, &g->t_ea.h)))
-		wtf('e');
+		game_err('e');
 	g->t_ea.i.adrr = mlx_get_data_addr(g->t_ea.i.img, \
 		&g->t_ea.i.bpx, &g->t_ea.i.line_l, &g->t_ea.i.endian);
 }
@@ -30,7 +30,7 @@ void	spr_init(t_game *g, int x, int y, int i)
 	x = 0;
 	y = 0;
 	g->s = ft_calloc(sizeof(t_sprite) * g->sprt_n, 1);
-	!g->s ? wtf('d') : 0;
+	!g->s ? game_err('d') : 0;
 	while (x < g->map.lo)
 	{
 		y = 0;
@@ -100,7 +100,7 @@ void	playerxy(t_game *g, int x, int y, int i)
 		y = 0;
 		while (y < g->map.la)
 		{
-			i > 1 ? wtf('b') : 0;
+			i > 1 ? game_err('b') : 0;
 			if (g->map.tabm[x][y] == 'S' || g->map.tabm[x][y] == 'N' \
 				|| g->map.tabm[x][y] == 'E' || g->map.tabm[x][y] == 'W')
 			{
@@ -113,5 +113,5 @@ void	playerxy(t_game *g, int x, int y, int i)
 		}
 		x++;
 	}
-	g->pl.ori == ' ' ? wtf('f') : 0;
+	g->pl.ori == ' ' ? game_err('f') : 0;
 }

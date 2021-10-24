@@ -52,7 +52,7 @@ void	draw_env(t_game *g, int x, int y)
 {
 	g->img.img = mlx_new_image(g->mlx_ptr, \
 		g->res.w, g->res.he);
-	g->img.img ? 0 : wtf('c');
+	g->img.img ? 0 : game_err('c');
 	g->img.adrr = mlx_get_data_addr(g->img.img, &g->img.bpx, \
 		&g->img.line_l, &g->img.endian);
 	draw_up(g, x, y);
@@ -67,7 +67,7 @@ void	spr_text(t_game *g, int i)
 		if (!(g->s[i].t.i.img = mlx_xpm_file_to_image(g->mlx_ptr, \
 			g->t_spr.path, &g->s[i].t.w, \
 			&g->s[i].t.h)))
-			wtf('e');
+			game_err('e');
 		g->s[i].t.i.adrr = mlx_get_data_addr(g->s[i].t.i.img, \
 			&g->s[i].t.i.bpx, &g->s[i].t.i.line_l, \
 			&g->s[i].t.i.endian);

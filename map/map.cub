@@ -1,12 +1,12 @@
-R 640 400
-NO ./texture/noo.xpm
-SO ./texture/soo.xpm
-WE ./texture/wee.xpm
-EA ./texture/eaa.xpm
-S ./texture/bird.xpm
+R 740 500
+NO ./textures/no.xpm
+SO ./textures/so.xpm
+WE ./textures/we.xpm
+EA ./textures/ea.xpm
+S ./textures/sdr.xpm
 
-C 225,30,0
-F 220,100,0
+C 0,255,255
+F 1,100,0
 
 
         1111111111111111111111111

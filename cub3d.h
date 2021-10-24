@@ -206,12 +206,10 @@ typedef	struct	s_game
 # define I (int)
 # define B 256
 # define M 128
+
 # define FU1 (s - (-g->sp.w / 2 + g->sp.sx)) * g->s[i].t.w
-
 # define FU2 (y * B - g->res.he * M + g->sp.hei * M)
-
 # define FU3 g->img.adrr + (y * g->img.line_l + s * (g->img.bpx / 8))
-
 # define FU4 !ft_strstr(t, "NO") || !ft_strstr(t, "EA") || !ft_strstr(t, "SO")
 # define FU5 !ft_strstr(t, "WE") || !ft_strstr(t, "S ") || !ft_strstr(t, "F ")
 # define FU6 !ft_strstr(t, "C ") || !ft_strstr(t, "R ")
@@ -240,7 +238,7 @@ void			init_game3(t_game *g);
 void			init_game4(t_game *g);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 void			free_mem(char **tab, int lenght);
-void			wtf(char letter);
+void			game_err(char letter);
 void			suc(char letter);
 void			check_save(char *str);
 void			work_with_fd(t_game *g, char *argv);

@@ -18,12 +18,12 @@ void		check_inne(char **map, t_map m, int x, int y)
 		y = 0;
 		while (y < m.la)
 		{
-			check_each(map[x][y]) != 1 ? wtf('r') : 0;
+			check_each(map[x][y]) != 1 ? game_err('r') : 0;
 			map[x][y] == ' ' ? map[x][y] = '0' : 0;
 			if (map[x][y] != '1' && map[x][y] != '4')
 			{
 				map[x - 1][y] == '4' || map[x + 1][y] == '4' || map[x][y + 1] \
-				== '4' || map[x][y - 1] == '4' ? wtf('s') : 0;
+				== '4' || map[x][y - 1] == '4' ? game_err('s') : 0;
 			}
 			y++;
 		}
@@ -41,7 +41,7 @@ void		check_bord(char **map, t_map m, int x, int y)
 		while (y < m.la)
 		{
 			(x == 0 || x == m.lo - 1 || y == m.la - 1 || y == 0) \
-			&& (map[x][y] != '1' && map[x][y] != '4') ? wtf('s') : 0;
+			&& (map[x][y] != '1' && map[x][y] != '4') ? game_err('s') : 0;
 			y++;
 		}
 		x++;

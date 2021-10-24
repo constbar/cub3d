@@ -1,6 +1,6 @@
 #include "../cub3d.h"
 
-void	wtf(char letter)
+void	game_err(char letter)
 {
 	ft_putstr("Error\n");
 	letter == 'a' ? ft_putstr(NF1) : 0;

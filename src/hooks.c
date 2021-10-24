@@ -55,8 +55,8 @@ int		ctrl(int key, t_game *g)
 	if (key == 65361 || key == 65363)
 	{
 		g->mv.cam = 1;
-		key == 65363 ? g->rot = -0.15 : 0;
-		key == 65361 ? g->rot = 0.15 : 0;
+		key == 65363 ? g->rot = -0.03 : 0;
+		key == 65361 ? g->rot = 0.03 : 0;
 	}
 	if (key == 65307)
 	{

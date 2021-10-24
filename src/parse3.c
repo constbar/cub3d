@@ -33,7 +33,7 @@ t_col			get_color(char *l)
 		free_mem(buf, 3);
 	}
 	else
-		wtf('z');
+		game_err('z');
 	return (c);
 }
 
@@ -65,7 +65,7 @@ t_tex			texture_parse(char *l)
 	char			**res;
 
 	res = NULL;
-	ft_strlen(l) <= 2 ? wtf('e') : 0;
+	ft_strlen(l) <= 2 ? game_err('e') : 0;
 	res = ft_split(l, ' ');
 	t.orientation = ft_strdup(res[0]);
 	if (ft_strlen(t.orientation) > 2)

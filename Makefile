@@ -1,6 +1,6 @@
 NAME = cub3d
 
-SRC    =	src/init_game.c src/libft1.c src/libft2.c src/libft3.c \
+SRC	=		src/init_game.c src/libft1.c src/libft2.c src/libft3.c \
 			src/libft4.c src/libft5.c src/game.c src/err.c src/main.c \
 			src/parse1.c src/parse2.c src/parse3.c src/parse4.c \
 			src/draw1.c src/draw2.c src/draw3.c src/player.c src/hooks.c \

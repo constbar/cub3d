@@ -22,5 +22,5 @@ use `W` `A` `S` `D` to move and `←` `→` to rotate the camera. `esc` to close
 
 to take a screenshot before the game:
 ```
-./cub3d map/map.cub --save
+./cub3d maps/map.cub --save
 ```

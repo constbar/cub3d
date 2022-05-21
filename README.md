@@ -16,7 +16,7 @@ the project was made in accordance with the school design code standard in C lan
 the project will work only on linux.
 ```
 make
-./cub3d map/map.cub
+./cub3d maps/map.cub
 ```
 use `W` `A` `S` `D` to move and `←` `→` to rotate the camera. `esc` to close the game.
 
